@@ -11,7 +11,7 @@ class HashMap {
 
     const primeNumber = 31;
     for (let i = 0; i < key.length; i++) {
-      hashCode = (primeNumber * hashCode + key.charCodeAt(i)) %16 ;
+      hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % this.int ;
     }
 
     return hashCode;
@@ -45,12 +45,50 @@ class HashMap {
 
   get(key){
     const hashKey = this.hash(key);
-    if (!this.Map[hashKey]){
-      this.Map[hashKey]
-    }
+    if (this.Map[hashKey]){
+      let current = this.Map[hashKey]
+      while (current.node != null && current.key != key) {
+        current = current.node;
+      }
+      if(current.key === key) {
+       return current.value 
+      } 
+    } else return null
   }
+
+has(key){
+  const hashKey = this.hash(key);
+  if (this.Map[hashKey]){
+    let current = this.Map[hashKey]
+    while (current.node != null && current.key != key) {
+      current = current.node;
+    }
+    if(current.key === key) {
+     return true
+    } 
+  } else return false
+}
+
+remove(key){
+
+}
+
   length(){
     return this.Map.length
+  }
+
+  clear(){
+    this.Map= []
+    return this.Map
+  }
+  keys(){
+    
+  }
+  values(){
+
+  }
+  entries(){
+
   }
 }
 
@@ -70,3 +108,4 @@ test.set('kite', 'pink') //3
 test.set('lion', 'golden') //8
 console.log(test.set('house', 'white'));
 console.log(test.length());
+console.log(test.get('trash'));
