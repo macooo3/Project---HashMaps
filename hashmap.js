@@ -1,6 +1,6 @@
 import HashMap from "./script.js";
 
-const test = new HashMap(16, 0.75);
+const test = new HashMap( 0.75, 8);
 test.set("apple", "red");
 test.set("banana", "yellow"); //9
 test.set("carrot", "orange"); //3
@@ -13,11 +13,14 @@ test.set("ice cream", "white"); //5
 test.set("jacket", "blue"); //2
 test.set("kite", "pink"); //3
 test.set("lion", "golden"); //8
-// test.set('house', 'white')
-// console.log(test.Map);
+test.set('house', 'white')
+// test.set('words', 'red')
+
 console.log(test.length());
+console.log(test.clear());
 console.log(test.get("trash"));
-// console.log(test.remove("lion"));
-console.log(test.keys());
-console.log(test.values());
-console.log(test.entries());
+// // console.log(test.remove("lion"));
+// console.log(test.keys());
+// console.log(test.values());
+// console.log(test.entries());
+console.log(test.Map);
