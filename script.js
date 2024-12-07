@@ -4,7 +4,7 @@ export default class HashMap {
     this.capacity = capacity;
     this.int = this.loadFactor * this.capacity;
     this.Map = [];
-    this.buckets = capacity
+    
   }
 
   hash(key) {
