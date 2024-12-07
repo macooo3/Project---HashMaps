@@ -1,9 +1,10 @@
-class HashMap {
+export default class HashMap {
   constructor(loadFactor, capacity) {
     this.loadFactor = loadFactor;
     this.capacity = capacity;
     this.int = this.loadFactor * this.capacity;
     this.Map = [];
+    this.buckets = capacity
   }
 
   hash(key) {
@@ -93,7 +94,16 @@ class HashMap {
   }
 
   length() {
-    return this.Map.length;
+   let length = 0
+   for (let key in this.Map) {
+    let current = this.Map[key]
+    while(current.node != null){
+      length++
+      current = current.node
+    }
+    length++
+   }
+   return length
   }
 
   clear() {
@@ -138,23 +148,5 @@ class HashMap {
   }
 }
 
-const test = new HashMap(16, 0.75);
-test.set("apple", "red");
-test.set("banana", "yellow"); //9
-test.set("carrot", "orange"); //3
-test.set("dog", "brown"); //8
-test.set("elephant", "gray"); //9
-test.set("frog", "green"); //4
-test.set("grape", "purple"); //11
-test.set("hat", "black"); //11
-test.set("ice cream", "white"); //5
-test.set("jacket", "blue"); //2
-test.set("kite", "pink"); //3
-test.set("lion", "golden"); //8
-console.log(test.length());
-console.log(test.get("trash"));
-console.log(test.remove("lion"));
-console.log(test.keys());
-console.log(test.values());
-console.log(test.entries());
+
 
